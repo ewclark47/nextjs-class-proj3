@@ -1,5 +1,5 @@
 import Link from "next/link";
-import HeaderAuth from "./headerAuth";
+import HeaderAuth from "./header-auth";
 
 import {
     Navbar,
