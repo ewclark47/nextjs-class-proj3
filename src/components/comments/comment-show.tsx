@@ -1,6 +1,4 @@
-import type { CommentWithAuthor } from "@/db/queries/comments";
 import Image from "next/image";
-import { Button } from "@nextui-org/react";
 import CommentCreateForm from "@/components/comments/comment-create-form";
 import { fetchCommentsByPostId } from "@/db/queries/comments";
 
@@ -10,6 +8,7 @@ interface CommentShowProps {
 }
 
 export default async function CommentShow({ commentId, postId}: CommentShowProps) {
+  //await new Promise(resolve => setTimeout(resolve, 2500))
   const comments = await fetchCommentsByPostId(postId)
   const comment = comments.find((c) => c.id === commentId);
 

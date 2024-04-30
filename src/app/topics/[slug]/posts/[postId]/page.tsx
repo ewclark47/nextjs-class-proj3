@@ -5,6 +5,7 @@ import paths from "@/paths"
 import Link from "next/link"
 import { Suspense } from "react"
 import ShowPostLoading from "@/components/posts/show-post-loading"
+import ShowCommentLoading from "@/components/posts/show-comment-loading"
 
 interface ShowPostPageProps{
     params: {
@@ -25,7 +26,9 @@ export default async function ShowPostPage({params}: ShowPostPageProps){
                 <PostShow postId={postId} />
             </Suspense>
             <CommentCreateForm postId={postId} />
-            <CommentList postId={postId} />
+            <Suspense fallback={<ShowCommentLoading />}>
+                <CommentList postId={postId} />
+            </Suspense>
         </div>
     )
 }
